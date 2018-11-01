@@ -10,5 +10,5 @@ import Foundation
 
 class Datos {
     static var resultadosPeliculas : [Pelicula] =
-    [Pelicula(Titulo: "Space Jam", Año: 1996), Pelicula(Titulo: "Aladdin", Año: 1992)]
+    []
 }

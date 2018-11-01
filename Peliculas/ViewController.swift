@@ -31,13 +31,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var txtBusqueda: UITextField!
     @IBOutlet weak var aiCargandoBusqueda: UIActivityIndicatorView!
     @IBAction func doTapBuscarPelicula(_ sender: Any) {
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        Alamofire.request("https://www.omdbapi.com/?apikey=fbf7bf8f&s=godfather").responseJSON{
+        let urlBase = "https://www.omdbapi.com/?apikey=fbf7bf8f&s="
+        
+        aiCargandoBusqueda.startAnimating()
+        var busqueda = txtBusqueda.text!
+        busqueda = busqueda.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        Alamofire.request("\(urlBase)\(busqueda)").responseJSON{
             response in
             
             Datos.resultadosPeliculas.removeAll()
@@ -53,7 +53,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.tvResultadosPeliculas.reloadData()
                 }
             }
+            self.aiCargandoBusqueda.stopAnimating()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
