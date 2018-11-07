@@ -35,18 +35,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20X-ac-rQ6">
-                                <rect key="frame" x="16" y="122" width="48" height="30"/>
-                                <state key="normal" title="Buscar"/>
-                                <connections>
-                                    <action selector="doTapBuscarPelicula:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olL-oQ-AdA"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MJF-UC-iMV">
-                                <rect key="frame" x="99" y="127" width="20" height="20"/>
-                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cIL-Rl-YA3">
-                                <rect key="frame" x="0.0" y="155" width="375" height="512"/>
+                                <rect key="frame" x="0.0" y="186" width="375" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellResultadoPelicula" rowHeight="74" id="SE9-T9-7zp" customClass="CeldaPeliculaController" customModule="Peliculas" customModuleProvider="target">
@@ -95,7 +85,7 @@
                                         <connections>
                                             <outlet property="lblAño" destination="R1h-mV-GF3" id="nTG-EZ-eR7"/>
                                             <outlet property="lblPelicula" destination="gfs-lg-1YJ" id="LDt-WL-DYx"/>
-                                            <segue destination="C1U-pM-Pnf" kind="show" id="50v-CN-Hrh"/>
+                                            <segue destination="C1U-pM-Pnf" kind="show" identifier="goToDetalle" id="50v-CN-Hrh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -104,8 +94,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xA5-4N-pxN"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buscador de Peliculas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WK-qu-Tzr">
+                                <rect key="frame" x="50" y="74" width="275" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20X-ac-rQ6">
+                                <rect key="frame" x="16" y="153" width="48" height="30"/>
+                                <state key="normal" title="Buscar"/>
+                                <connections>
+                                    <action selector="doTapBuscarPelicula:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olL-oQ-AdA"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MJF-UC-iMV">
+                                <rect key="frame" x="99" y="158" width="20" height="20"/>
+                            </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Au6-Ar-5GB">
-                                <rect key="frame" x="16" y="84" width="343" height="30"/>
+                                <rect key="frame" x="16" y="115" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -113,17 +119,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5WK-qu-Tzr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="1M3-oW-Fpn"/>
                             <constraint firstItem="20X-ac-rQ6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Dwc-dN-slA"/>
                             <constraint firstItem="Au6-Ar-5GB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="E72-RR-u6M"/>
                             <constraint firstItem="cIL-Rl-YA3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="EXu-Hq-VdW"/>
                             <constraint firstItem="MJF-UC-iMV" firstAttribute="leading" secondItem="20X-ac-rQ6" secondAttribute="trailing" constant="35" id="G8V-i1-EBB"/>
+                            <constraint firstItem="5WK-qu-Tzr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="OPX-98-Uf3"/>
+                            <constraint firstItem="Au6-Ar-5GB" firstAttribute="top" secondItem="5WK-qu-Tzr" secondAttribute="bottom" constant="6" id="QWQ-tL-cF5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5WK-qu-Tzr" secondAttribute="trailing" constant="50" id="Ukf-7y-4R4"/>
                             <constraint firstItem="cIL-Rl-YA3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="avf-tG-rSm"/>
                             <constraint firstItem="cIL-Rl-YA3" firstAttribute="top" secondItem="Au6-Ar-5GB" secondAttribute="bottom" constant="41" id="g9n-t2-fPb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Au6-Ar-5GB" secondAttribute="trailing" constant="16" id="sjQ-lB-eZM"/>
                             <constraint firstItem="cIL-Rl-YA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tFy-es-ql5"/>
                             <constraint firstItem="20X-ac-rQ6" firstAttribute="top" secondItem="Au6-Ar-5GB" secondAttribute="bottom" constant="8" id="uNg-oM-Lzd"/>
                             <constraint firstItem="MJF-UC-iMV" firstAttribute="top" secondItem="Au6-Ar-5GB" secondAttribute="bottom" constant="13" id="xiq-uF-mdE"/>
-                            <constraint firstItem="Au6-Ar-5GB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zFm-Qa-mQn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -212,18 +221,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBG-vn-VBI">
+                                <rect key="frame" x="40" y="340" width="295" height="307"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jGe-QU-cvt" firstAttribute="leading" secondItem="g6W-kz-bgf" secondAttribute="leading" constant="20" id="1H3-pY-D03"/>
                             <constraint firstItem="SM3-2k-0TB" firstAttribute="leading" secondItem="jGe-QU-cvt" secondAttribute="trailing" constant="80" id="3wJ-73-Dja"/>
                             <constraint firstItem="fcr-IV-etl" firstAttribute="leading" secondItem="ffv-cx-EwB" secondAttribute="trailing" constant="68" id="56z-To-jTE"/>
+                            <constraint firstItem="g6W-kz-bgf" firstAttribute="trailing" secondItem="nBG-vn-VBI" secondAttribute="trailing" constant="40" id="8Qa-p2-ahZ"/>
                             <constraint firstItem="0g2-Iz-EaL" firstAttribute="top" secondItem="g6W-kz-bgf" secondAttribute="top" constant="25" id="9Go-ZM-cIG"/>
                             <constraint firstItem="fcr-IV-etl" firstAttribute="top" secondItem="7nF-8P-fSM" secondAttribute="bottom" constant="20" id="FMw-do-NzE"/>
                             <constraint firstItem="0g2-Iz-EaL" firstAttribute="leading" secondItem="g6W-kz-bgf" secondAttribute="leading" constant="40" id="IWa-O2-RiN"/>
                             <constraint firstItem="EKS-4h-4kg" firstAttribute="leading" secondItem="GUb-Il-DKK" secondAttribute="trailing" constant="75" id="Jau-qa-fw2"/>
                             <constraint firstItem="SM3-2k-0TB" firstAttribute="top" secondItem="fcr-IV-etl" secondAttribute="bottom" constant="18" id="Jct-Nw-7Io"/>
                             <constraint firstItem="OjU-F7-t3V" firstAttribute="leading" secondItem="g6W-kz-bgf" secondAttribute="leading" constant="20" id="KEr-p2-49w"/>
+                            <constraint firstItem="nBG-vn-VBI" firstAttribute="leading" secondItem="g6W-kz-bgf" secondAttribute="leading" constant="40" id="PMg-Dh-eOF"/>
                             <constraint firstItem="Hf5-Jf-8BJ" firstAttribute="leading" secondItem="OjU-F7-t3V" secondAttribute="trailing" constant="106" id="RtN-ex-obc"/>
                             <constraint firstItem="GUb-Il-DKK" firstAttribute="top" secondItem="jGe-QU-cvt" secondAttribute="bottom" constant="23" id="TeC-qU-lDG"/>
                             <constraint firstItem="qbN-ob-DbW" firstAttribute="top" secondItem="OjU-F7-t3V" secondAttribute="bottom" constant="23" id="XoD-Z0-4fz"/>
@@ -236,11 +250,22 @@
                             <constraint firstItem="OjU-F7-t3V" firstAttribute="top" secondItem="0g2-Iz-EaL" secondAttribute="bottom" constant="18" id="l8v-IE-jce"/>
                             <constraint firstItem="jGe-QU-cvt" firstAttribute="top" secondItem="ffv-cx-EwB" secondAttribute="bottom" constant="18" id="qih-xv-Mgh"/>
                             <constraint firstItem="7nF-8P-fSM" firstAttribute="leading" secondItem="qbN-ob-DbW" secondAttribute="trailing" constant="40" id="rZa-ke-tI5"/>
+                            <constraint firstItem="g6W-kz-bgf" firstAttribute="bottom" secondItem="nBG-vn-VBI" secondAttribute="bottom" constant="20" id="u6f-x8-y0a"/>
                             <constraint firstItem="Hf5-Jf-8BJ" firstAttribute="top" secondItem="0g2-Iz-EaL" secondAttribute="bottom" constant="18" id="uAD-pO-Utj"/>
+                            <constraint firstItem="nBG-vn-VBI" firstAttribute="top" secondItem="EKS-4h-4kg" secondAttribute="bottom" constant="8" id="uyO-Ts-DiT"/>
                             <constraint firstItem="ffv-cx-EwB" firstAttribute="leading" secondItem="g6W-kz-bgf" secondAttribute="leading" constant="20" id="yFw-zB-eEi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6W-kz-bgf"/>
                     </view>
+                    <connections>
+                        <outlet property="lblAño" destination="Hf5-Jf-8BJ" id="B1D-Fp-cCM"/>
+                        <outlet property="lblClasificacion" destination="7nF-8P-fSM" id="V4T-ex-h0u"/>
+                        <outlet property="lblDirector" destination="EKS-4h-4kg" id="XDv-7g-oB0"/>
+                        <outlet property="lblDuracion" destination="fcr-IV-etl" id="Ld3-tw-jGA"/>
+                        <outlet property="lblGenero" destination="SM3-2k-0TB" id="h54-TM-seL"/>
+                        <outlet property="lblTitulo" destination="0g2-Iz-EaL" id="aR5-qx-Kc2"/>
+                        <outlet property="uiPoster" destination="nBG-vn-VBI" id="kdI-BX-cUs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUD-hL-DmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

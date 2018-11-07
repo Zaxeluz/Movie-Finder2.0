@@ -69,6 +69,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destino = segue.destination as? DetallesPeliculaController {
+            destino.pelicula = Datos.resultadosPeliculas[(tvResultadosPeliculas.indexPathForSelectedRow?.row)!]
+        }    }
 
 }
 
